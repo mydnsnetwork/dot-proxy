@@ -1,0 +1,17 @@
+[resolvers.adblock]
+address = "https://adblock.mydns.network/dns-query?routedns"
+protocol = "doh"
+
+[groups.adblock-cache]
+type = "cache"
+resolvers = ["adblock"]
+cache-negative-ttl = 3600
+cache-answer-shuffle = "random"
+backend = {type = "memory", size = 1000}
+
+[listeners.adblock-dot]
+address = "0.0.0.0:1853"
+protocol = "dot"
+resolver = "adblock-cache"
+server-crt = "cloudflare.crt"
+server-key = "cloudflare.key"

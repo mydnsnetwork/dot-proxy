@@ -11,45 +11,73 @@ kill_timeout = "5s"
 [experimental]
   auto_rollback = true
 
+[processes]
+  adblock = "adblock.toml"
+  family = "family.toml"
+  freedom = "freedom.toml"
+  paranoia = "paranoia.toml"
+
 # adblock.dot.mydns.network
 [[services]]
   protocol = "tcp"
   internal_port = 1853
+  processes = ["adblock"]
 
   [[services.ports]]
     port = 1853
+
+  [[services.tcp_checks]]
+    interval = "5s"
+    timeout = "2s"
+    grace_period = "1s"
+    restart_limit = 6
 
 # family.dot.mydns.network
 [[services]]
   protocol = "tcp"
   internal_port = 2853
+  processes = ["family"]
 
   [[services.ports]]
     port = 2853
+
+  [[services.tcp_checks]]
+    interval = "5s"
+    timeout = "2s"
+    grace_period = "1s"
+    restart_limit = 6
 
 # freedom.dot.mydns.network
 [[services]]
   protocol = "tcp"
   internal_port = 3853
+  processes = ["freedom"]
 
   [[services.ports]]
     port = 3853
+
+  [[services.tcp_checks]]
+    interval = "5s"
+    timeout = "2s"
+    grace_period = "1s"
+    restart_limit = 6
 
 # paranoia.dot.mydns.network
 [[services]]
   protocol = "tcp"
   internal_port = 4853
+  processes = ["paranoia"]
 
   [[services.ports]]
     port = 4853
+
+  [[services.tcp_checks]]
+    interval = "5s"
+    timeout = "2s"
+    grace_period = "1s"
+    restart_limit = 6
 
 [services.concurrency]
   type = "connections"
   hard_limit = 500
   soft_limit = 250
-
-[[services.tcp_checks]]
-  interval = "15s"
-  timeout = "2s"
-  grace_period = "1s"
-  restart_limit = 6

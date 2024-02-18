@@ -1,0 +1,17 @@
+[resolvers.paranoia]
+address = "https://paranoia.mydns.network/dns-query?routedns"
+protocol = "doh"
+
+[groups.paranoia-cache]
+type = "cache"
+resolvers = ["paranoia"]
+cache-negative-ttl = 3600
+cache-answer-shuffle = "random"
+backend = {type = "memory", size = 1000}
+
+[listeners.paranoia-dot]
+address = "0.0.0.0:4853"
+protocol = "dot"
+resolver = "paranoia-cache"
+server-crt = "cloudflare.crt"
+server-key = "cloudflare.key"
