@@ -22,6 +22,9 @@ kill_timeout = "5s"
   protocol = "tcp"
   internal_port = 1853
   processes = ["adblock"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
 
   [[services.ports]]
     port = 1853
@@ -37,6 +40,9 @@ kill_timeout = "5s"
   protocol = "tcp"
   internal_port = 2853
   processes = ["family"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
 
   [[services.ports]]
     port = 2853
@@ -52,6 +58,9 @@ kill_timeout = "5s"
   protocol = "tcp"
   internal_port = 3853
   processes = ["freedom"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
 
   [[services.ports]]
     port = 3853
@@ -67,6 +76,9 @@ kill_timeout = "5s"
   protocol = "tcp"
   internal_port = 4853
   processes = ["paranoia"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
 
   [[services.ports]]
     port = 4853
