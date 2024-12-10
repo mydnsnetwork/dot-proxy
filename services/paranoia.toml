@@ -15,3 +15,11 @@ protocol = "dot"
 resolver = "paranoia-cache"
 server-crt = "cloudflare.crt"
 server-key = "cloudflare.key"
+
+[listeners.paranoia-quic]
+address = ":4443"
+protocol = "doh"
+transport = "quic"
+resolver = "paranoia-cache"
+server-crt = "cloudflare.crt"
+server-key = "cloudflare.key"

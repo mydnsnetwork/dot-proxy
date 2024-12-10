@@ -15,3 +15,11 @@ protocol = "dot"
 resolver = "family-cache"
 server-crt = "cloudflare.crt"
 server-key = "cloudflare.key"
+
+[listeners.family-quic]
+address = ":2443"
+protocol = "doh"
+transport = "quic"
+resolver = "family-cache"
+server-crt = "cloudflare.crt"
+server-key = "cloudflare.key"

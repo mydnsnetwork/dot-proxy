@@ -15,3 +15,10 @@ protocol = "dot"
 resolver = "adblock-cache"
 server-crt = "cloudflare.crt"
 server-key = "cloudflare.key"
+
+[listeners.adblock-quic]
+address = "0.0.0.0:1443"
+protocol = "doq"
+resolver = "adblock-cache"
+server-crt = "cloudflare.crt"
+server-key = "cloudflare.key"

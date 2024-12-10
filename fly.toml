@@ -35,6 +35,18 @@ kill_timeout = "5s"
     grace_period = "1s"
     restart_limit = 6
 
+# adblock.quic.mydns.network
+[[services]]
+  protocol = "udp"
+  internal_port = 1443
+  processes = ["adblock"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 1443
+
 # family.dot.mydns.network
 [[services]]
   protocol = "tcp"
@@ -52,6 +64,18 @@ kill_timeout = "5s"
     timeout = "2s"
     grace_period = "1s"
     restart_limit = 6
+
+# family.quic.mydns.network
+[[services]]
+  protocol = "udp"
+  internal_port = 2443
+  processes = ["family"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 2443
 
 # freedom.dot.mydns.network
 [[services]]
@@ -71,6 +95,18 @@ kill_timeout = "5s"
     grace_period = "1s"
     restart_limit = 6
 
+# freedom.quic.mydns.network
+[[services]]
+  protocol = "udp"
+  internal_port = 3443
+  processes = ["freedom"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 3443
+
 # paranoia.dot.mydns.network
 [[services]]
   protocol = "tcp"
@@ -88,6 +124,18 @@ kill_timeout = "5s"
     timeout = "2s"
     grace_period = "1s"
     restart_limit = 6
+
+# paranoia.quic.mydns.network
+[[services]]
+  protocol = "udp"
+  internal_port = 4443
+  processes = ["paranoia"]
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 4443
 
 [services.concurrency]
   type = "connections"
